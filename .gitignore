@@ -1,0 +1,35 @@
+# local / tooling
+.netlify/
+.claude/
+scratch/
+*.zip
+*.ps1
+tmpwdx_m4zw.mp4
+Landscape_opacity_reveal_animation_1080p_202609062015.mp4
+# unused prototypes & test pages
+gemini-code-*.html
+indian_snake_explorer.html
+interactive_monsoon_animation.html
+compare_*.html
+crop_inspector.*
+decompose.*
+inspect_*
+measure_*.html
+snake_heads.*
+zoom_snakes.*
+test_*.html
+check_uploads.js
+# unused heavy assets
+assets/cobra_sequence/
+assets/verification/
+assets/verification_scroll/
+assets/diversity_backup/
+assets/forest_edges_backup/
+assets/layer_extracts/
+assets/clock_animation/
+assets/look_closer/
+assets/fonts_test/
+assets/crack_clean_temp*.mp4
+assets/test_*
+assets/frame_*.png
+assets/f_*.png
