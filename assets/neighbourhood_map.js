@@ -860,6 +860,7 @@
         resetToAllIndia,
         jumpToPresetPlace,
         toggleScrollWheelZoom,
+        getMap: () => mainMap,
         zoomIn: () => mainMap.zoomIn(),
         zoomOut: () => mainMap.zoomOut()
     };
