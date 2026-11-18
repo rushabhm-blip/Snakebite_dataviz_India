@@ -1213,6 +1213,14 @@ function initLandscapeLayerStory() {
         const b7 = calcCardState(progress, 0.962, 0.970, 1.0, 1.0);
         if (paddySankeyStage) {
             paddySankeyStage.style.opacity = b7.opacity.toFixed(3);
+            const stickyStageEl = document.getElementById('landscape-sticky-stage');
+            if (stickyStageEl) {
+                // No bottom fade while the chart is pinned; fade returns as the stage scrolls out of view
+                const landscapeSec = document.getElementById('landscape-screen');
+                const leaving = landscapeSec ? Math.min(1, Math.max(0, (window.innerHeight - landscapeSec.getBoundingClientRect().bottom) / 200)) : 0;
+                const sankeyFade = 1 - Math.min(1, b7.opacity * 2);
+                stickyStageEl.style.setProperty('--stage-fade', (200 * Math.max(sankeyFade, leaving)).toFixed(1) + 'px');
+            }
             paddySankeyStage.style.transform = `translateY(${b7.translateY.toFixed(1)}px) scale(${b7.scale.toFixed(3)})`;
             paddySankeyStage.style.filter = b7.blur > 0.2 ? `blur(${b7.blur.toFixed(1)}px)` : 'none';
             paddySankeyStage.style.pointerEvents = b7.opacity > 0.5 ? 'auto' : 'none';
