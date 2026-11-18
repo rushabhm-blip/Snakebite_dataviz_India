@@ -4253,21 +4253,39 @@ body::-webkit-scrollbar,
         text-align: center;
     }
 
+    /* Phone: keep the caption in the left column, clear of the man and snake on the right */
     .habitat-editorial-card.habitat-left {
         left: 20px;
-        right: 20px;
-        bottom: 12%;
-        max-width: none;
+        right: auto;
+        bottom: 19%;
+        max-width: 54%;
         width: auto;
-        text-align: center;
+        text-align: left;
     }
 
     .habitat-title.habitat-title-right,
-    .habitat-title.habitat-title-left,
     .habitat-description.habitat-desc-right {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .habitat-title.habitat-title-left {
+        text-align: left;
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.25;
+    }
+
+    /* Legibility over the busy artwork */
+    .habitat-title.habitat-title-left,
+    .habitat-title.habitat-title-right,
+    .habitat-description.habitat-desc-right {
+        text-shadow: 0 1px 14px rgba(3, 18, 11, 0.95), 0 0 3px rgba(3, 18, 11, 0.8);
+    }
+
+    .h-left-line-1 {
+        color: #D3DACB;
     }
 
     .mountain-story-block {
