@@ -27,7 +27,6 @@
 
 html {
     background-color: #03120B; /* stops Safari/iPadOS tinting toolbar & overscroll area */
-    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
     scrollbar-width: none !important; /* Firefox */
     -ms-overflow-style: none !important; /* IE / Edge */
