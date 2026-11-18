@@ -4097,6 +4097,15 @@ body::-webkit-scrollbar,
     transform: translateX(-4px);
 }
 
+/* Hero: "Share a sighting" pill (top-right) */
+.story-top-nav.story-top-nav--right {
+    left: auto;
+    right: clamp(20px, 3.5vw, 44px);
+}
+.story-sighting-btn[hidden] { display: none; }
+.story-sighting-btn { border-color: rgba(245, 158, 11, 0.55); }
+.story-sighting-btn svg { color: #F59E0B; }
+
 /* Closing Screen: Actions Wrap & Back to Projects Button */
 .closing-actions-wrap {
     display: flex;

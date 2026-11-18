@@ -158,6 +158,11 @@
     const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
 
     cta.querySelector('#csub-open').addEventListener('click', () => { say(''); open(); });
+    // Any element with data-csub-open (e.g. the hero button) opens the form; shown only once the form is ready
+    document.querySelectorAll('[data-csub-open]').forEach(el => {
+        el.hidden = false;
+        el.addEventListener('click', () => { say(''); open(); });
+    });
     $('csub-cancel').addEventListener('click', close);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) close(); });

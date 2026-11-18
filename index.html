@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
     <link rel="stylesheet" href="assets/neighbourhood_map.css?v=snc_v3" />
-    <link rel="stylesheet" href="style.css?v=m_touch_v5">
+    <link rel="stylesheet" href="style.css?v=m_touch_v6">
 </head>
 <body class="story-body">
 
@@ -44,6 +44,16 @@
     <main class="story-container" id="story-root">
         <!-- SCREEN 1: HERO TITLE & STAGE -->
         <section class="hero-screen" id="hero-screen">
+            <!-- Community: opens the "Share a sighting" form -->
+            <div class="story-top-nav story-top-nav--right">
+                <button type="button" class="story-back-btn story-sighting-btn" id="heroSightingBtn" data-csub-open hidden aria-label="Share a snake sighting">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                        <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                    <span>Share a sighting</span>
+                </button>
+            </div>
             <div class="hero-content">
                 <span class="hero-intro-label">HUMANS, SNAKES & COEXISTENCE</span>
 
@@ -1346,7 +1356,7 @@
     <!-- Observation Dataset and Interactive Map Controller -->
     <script src="assets/snake_observations_data.js"></script>
     <script src="assets/neighbourhood_map.js?v=snc_v3"></script>
-    <script src="assets/community_submissions.js?v=csub_v2"></script>
+    <script src="assets/community_submissions.js?v=csub_v3"></script>
     <script src="script.js?v=m_touch_v5"></script>
 </body>
 </html>
