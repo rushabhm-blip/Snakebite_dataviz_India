@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
     <link rel="stylesheet" href="assets/neighbourhood_map.css?v=snc_v3" />
-    <link rel="stylesheet" href="style.css?v=m_touch_v6">
+    <link rel="stylesheet" href="style.css?v=m_touch_v7">
 </head>
 <body class="story-body">
 
@@ -44,6 +44,15 @@
     <main class="story-container" id="story-root">
         <!-- SCREEN 1: HERO TITLE & STAGE -->
         <section class="hero-screen" id="hero-screen">
+            <!-- Quick access to the "Who shares your neighbourhood?" tool from the first screen -->
+            <form class="hero-search" id="heroSearch" role="search" autocomplete="off">
+                <svg class="hero-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="heroSearchInput" class="hero-search-input" placeholder="Snakes near you? City or pincode" aria-label="Search snakes around you by city, area or pincode" maxlength="120">
+                <button type="button" class="hero-search-geo" id="heroSearchGeo" title="Use my location" aria-label="Use my location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path><circle cx="12" cy="12" r="8"></circle></svg>
+                </button>
+                <button type="submit" class="hero-search-go">Search</button>
+            </form>
             <!-- Community: opens the "Share a sighting" form -->
             <div class="story-top-nav story-top-nav--right">
                 <button type="button" class="story-back-btn story-sighting-btn" id="heroSightingBtn" data-csub-open hidden aria-label="Share a snake sighting">
@@ -1357,6 +1366,6 @@
     <script src="assets/snake_observations_data.js"></script>
     <script src="assets/neighbourhood_map.js?v=snc_v3"></script>
     <script src="assets/community_submissions.js?v=csub_v3"></script>
-    <script src="script.js?v=m_touch_v5"></script>
+    <script src="script.js?v=hsearch_v1"></script>
 </body>
 </html>

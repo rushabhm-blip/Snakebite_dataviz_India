@@ -2496,3 +2496,40 @@ function initClosingSection() {
     }
 }
 
+
+/* Hero quick search: jump to the neighbourhood map and run the search there */
+(function initHeroSearch() {
+    const form = document.getElementById('heroSearch');
+    const input = document.getElementById('heroSearchInput');
+    const geoBtn = document.getElementById('heroSearchGeo');
+    if (!form || !input) return;
+
+    function toMapThen(action) {
+        const mapSection = document.getElementById('snakes-neighbourhood-component');
+        if (!mapSection) return;
+        const top = mapSection.getBoundingClientRect().top + window.scrollY - 24;
+        window.scrollTo({ top: top, behavior: 'auto' });
+        setTimeout(action, 600);
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const q = input.value.trim();
+        if (!q) { input.focus(); return; }
+        toMapThen(() => {
+            const mapInput = document.getElementById('snc-location-input');
+            const mapBtn = document.getElementById('snc-btn-search');
+            if (mapInput) mapInput.value = q;
+            if (mapBtn) mapBtn.click();
+        });
+    });
+
+    if (geoBtn) {
+        geoBtn.addEventListener('click', () => {
+            toMapThen(() => {
+                const b = document.getElementById('snc-btn-my-location');
+                if (b) b.click();
+            });
+        });
+    }
+})();

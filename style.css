@@ -4106,6 +4106,78 @@ body::-webkit-scrollbar,
 .story-sighting-btn { border-color: rgba(245, 158, 11, 0.55); }
 .story-sighting-btn svg { color: #F59E0B; }
 
+/* Hero: quick "snakes around you" search (top centre) */
+.hero-search {
+    position: absolute;
+    top: clamp(20px, 3vh, 36px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: min(520px, calc(100vw - 2 * clamp(20px, 3.5vw, 44px) - 380px));
+    min-width: 340px;
+    padding: 5px 5px 5px 14px;
+    border-radius: 9999px;
+    background: rgba(7, 31, 24, 0.76);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(168, 185, 163, 0.28);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    color: #EEECE3;
+    font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, 'DM Sans', sans-serif;
+    box-sizing: border-box;
+}
+.hero-search:focus-within { border-color: rgba(245, 158, 11, 0.7); }
+.hero-search-icon { flex: none; opacity: 0.8; }
+.hero-search-input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #EEECE3;
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 0;
+}
+.hero-search-input::placeholder { color: rgba(238, 236, 227, 0.62); }
+.hero-search-geo {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(168, 185, 163, 0.3);
+    background: transparent;
+    color: #EEECE3;
+    cursor: pointer;
+}
+.hero-search-geo:hover { background: rgba(255, 255, 255, 0.1); }
+.hero-search-go {
+    flex: none;
+    border: 0;
+    border-radius: 9999px;
+    padding: 9px 18px;
+    background: #F59E0B;
+    color: #1a1204;
+    font: 600 14px 'Google Sans Flex', -apple-system, sans-serif;
+    cursor: pointer;
+}
+.hero-search-go:hover { filter: brightness(1.08); }
+
+/* Narrower screens: search sits on its own row under the top buttons */
+@media (max-width: 1000px) {
+    .hero-search {
+        top: 72px;
+        width: min(520px, calc(100vw - 40px));
+        min-width: 0;
+    }
+}
+
 /* Closing Screen: Actions Wrap & Back to Projects Button */
 .closing-actions-wrap {
     display: flex;
