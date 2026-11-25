@@ -25,6 +25,12 @@
     --font-body: 'Inter', -apple-system, sans-serif;
 }
 
+/* Vertical scroll only, at every width */
+html,
+body {
+    overflow-x: clip;
+}
+
 html {
     background-color: #03120B; /* stops Safari/iPadOS tinting toolbar & overscroll area */
     -webkit-text-size-adjust: 100%;
