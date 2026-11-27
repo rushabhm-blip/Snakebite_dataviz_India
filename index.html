@@ -14,7 +14,7 @@
         <!-- Leaflet & MarkerCluster for Neighbourhood Observations Map -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
-    <link rel="stylesheet" href="assets/neighbourhood_map.css?v=snc_v3" />
+    <link rel="stylesheet" href="assets/neighbourhood_map.css?v=snc_v4" />
     <link rel="stylesheet" href="style.css?v=no_hscroll_v1">
 </head>
 <body class="story-body">
@@ -1270,12 +1270,20 @@
                         <!-- Single Quiet Map Legend -->
                         <div class="snc-map-legend" aria-label="Map legend">
                             <div class="snc-legend-row">
-                                <span class="snc-legend-dot" aria-hidden="true"></span>
-                                <span>Recorded observation</span>
+                                <span class="snc-legend-dot v" aria-hidden="true"></span>
+                                <span>Venomous</span>
                             </div>
                             <div class="snc-legend-row">
-                                <span class="snc-legend-cluster" aria-hidden="true">12</span>
-                                <span>Numbered cluster</span>
+                                <span class="snc-legend-dot m" aria-hidden="true"></span>
+                                <span>Mildly venomous</span>
+                            </div>
+                            <div class="snc-legend-row">
+                                <span class="snc-legend-dot n" aria-hidden="true"></span>
+                                <span>Non-venomous</span>
+                            </div>
+                            <div class="snc-legend-row">
+                                <span class="snc-legend-cluster mix" aria-hidden="true">12</span>
+                                <span>Cluster · ring shows the mix</span>
                             </div>
                             <div class="snc-legend-row" id="snc-legend-search-area" hidden>
                                 <span class="snc-legend-area" aria-hidden="true"></span>
@@ -1364,7 +1372,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
     <!-- Observation Dataset and Interactive Map Controller -->
     <script src="assets/snake_observations_data.js?v=inat_2026_11_28"></script>
-    <script src="assets/neighbourhood_map.js?v=snc_v3"></script>
+    <script src="assets/neighbourhood_map.js?v=snc_v4"></script>
     <script src="assets/community_submissions.js?v=csub_v3"></script>
     <script src="script.js?v=hsearch_v1"></script>
 </body>

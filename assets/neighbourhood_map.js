@@ -160,6 +160,11 @@
         zoomToBoundsOnClick: true,
         iconCreateFunction: function(cluster) {
             const count = cluster.getChildCount();
+            const mix = { v: 0, m: 0, n: 0 };
+            cluster.getAllChildMarkers().forEach(c => { mix[c.options.st || 'n']++; });
+            const pv = mix.v / count * 100, pm = pv + mix.m / count * 100;
+            const ring = `--pv:${pv.toFixed(1)}%;--pm:${pm.toFixed(1)}%`;
+            const tip = `${mix.v} venomous · ${mix.m} mildly venomous · ${mix.n} non-venomous`;
             let sizeClass = 'snc-cluster-28';
             let boxSize = 44;
             if (count >= 1000) {
@@ -178,7 +183,7 @@
                 : String(count);
 
             return L.divIcon({
-                html: `<div class="snc-cluster-hit"><div class="snc-cluster-circle ${sizeClass}"><span>${escapeHtml(label)}</span></div></div>`,
+                html: `<div class="snc-cluster-hit" title="${tip}"><div class="snc-cluster-circle ${sizeClass}" style="${ring}"><span>${escapeHtml(label)}</span></div></div>`,
                 className: 'snc-cluster-icon',
                 iconSize: L.point(boxSize, boxSize)
             });
@@ -229,18 +234,24 @@
         `;
     }
 
+    // Venom-status colours (same as the story's species spectrum)
+    const STATUS_KEY = s => s === 'Venomous' ? 'v' : (s === 'Mildly Venomous' ? 'm' : 'n');
+    const STATUS_COLOUR = { v: '#d63053', m: '#e69119', n: '#10ac84' };
+    const STATUS_LABEL = { v: 'Venomous', m: 'Mildly venomous', n: 'Non-venomous' };
+
     // Build Individual Observation Markers (Small sage dots with restrained contrasting outline)
     const allMarkers = new Array(DATA.length);
     for (let i = 0; i < DATA.length; i++) {
         const r = DATA[i];
         const m = L.circleMarker([r[0], r[1]], {
             radius: 4.5,
-            fillColor: '#A8B9A3',
+            fillColor: STATUS_COLOUR[STATUS_KEY((SPECIES[r[2]] || {}).status)],
             color: '#071F18',
             weight: 1.25,
             opacity: 0.95,
             fillOpacity: 0.88
         });
+        m.options.st = STATUS_KEY((SPECIES[r[2]] || {}).status);
         m.bindPopup(() => buildPopup(r), { maxWidth: 245 });
         allMarkers[i] = m;
     }
@@ -453,6 +464,7 @@
                     <div class="snc-row-names">
                         <div class="snc-com-name">${escapeHtml(comDisplay)}</div>
                         <div class="snc-sci-name">${escapeHtml(sp.sci)}</div>
+                        <div class="snc-venom-tag snc-venom-${STATUS_KEY(sp.status)}"><i aria-hidden="true"></i>${STATUS_LABEL[STATUS_KEY(sp.status)]}</div>
                     </div>
                 </div>
                 <div class="snc-row-right">

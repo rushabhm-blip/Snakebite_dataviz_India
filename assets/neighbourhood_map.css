@@ -996,3 +996,31 @@
     opacity: 1;
     transition: opacity 0.4s ease-out;
 }
+
+        /* Venom status: dots, cluster rings, species tags, legend */
+        #snakes-neighbourhood-component .snc-cluster-circle {
+            border: 0;
+            background: radial-gradient(circle closest-side, #1A3C30 calc(100% - 4px), transparent calc(100% - 3.5px)),
+                conic-gradient(#d63053 0 var(--pv, 0%), #e69119 0 var(--pm, 0%), #10ac84 0);
+        }
+        #snakes-neighbourhood-component .snc-cluster-icon:hover .snc-cluster-circle {
+            background: radial-gradient(circle closest-side, #244F40 calc(100% - 4px), transparent calc(100% - 3.5px)),
+                conic-gradient(#d63053 0 var(--pv, 0%), #e69119 0 var(--pm, 0%), #10ac84 0);
+        }
+        #snakes-neighbourhood-component .snc-venom-tag {
+            display: inline-flex; align-items: center; gap: 6px; margin-top: 6px;
+            padding: 2px 9px 2px 7px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .02em;
+            font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        #snakes-neighbourhood-component .snc-venom-tag i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+        #snakes-neighbourhood-component .snc-venom-v { color: #ff6b85; background: rgba(214, 48, 83, .16); }
+        #snakes-neighbourhood-component .snc-venom-m { color: #f2a93b; background: rgba(230, 145, 25, .16); }
+        #snakes-neighbourhood-component .snc-venom-n { color: #2fd4a3; background: rgba(16, 172, 132, .16); }
+        #snakes-neighbourhood-component .snc-legend-dot.v { background: #d63053; }
+        #snakes-neighbourhood-component .snc-legend-dot.m { background: #e69119; }
+        #snakes-neighbourhood-component .snc-legend-dot.n { background: #10ac84; }
+        #snakes-neighbourhood-component .snc-legend-cluster.mix {
+            border: 0;
+            background: radial-gradient(circle closest-side, #1C3F32 calc(100% - 2.5px), transparent calc(100% - 2px)),
+                conic-gradient(#d63053 0 25%, #e69119 0 45%, #10ac84 0);
+        }
